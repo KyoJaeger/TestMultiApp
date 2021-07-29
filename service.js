@@ -4,6 +4,8 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const url = require('url');
+
 /**
  * App Variables
  */
@@ -27,8 +29,9 @@ app.post("/nylasWebhook", (req, res) => {
 });
 
 app.get("/nylasWebhook", (req, res) => {
-  console.log(req);
-  res.status(200).send(req);
+  const queryObject = url.parse(req.url, true).query;
+  console.log(queryObject);
+  res.status(200).send(queryObject.challenge);
 })
 
 /**
