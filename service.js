@@ -26,6 +26,11 @@ app.post("/nylasWebhook", (req, res) => {
   res.status(200).send(envTest);
 });
 
+app.get("/nylasWebhook", (req, res) => {
+  console.log(req);
+  res.status(200).send(req);
+})
+
 /**
  * Server Activation
  */
