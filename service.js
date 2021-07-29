@@ -25,6 +25,10 @@ app.get("/", (req, res) => {
 
 app.post("/nylasWebhook", (req, res) => {
   console.log(req.body);
+  for(let delta of req.body.deltas) {
+    console.log('delta time ', delta.date);
+    console.log(delta.object_data);
+  }
   res.status(200).send(envTest);
 });
 
